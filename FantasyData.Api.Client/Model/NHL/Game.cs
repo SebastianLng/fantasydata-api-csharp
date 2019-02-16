@@ -128,9 +128,9 @@ namespace FantasyData.Api.Client.Model.NHL
         public int? HomeTeamScore { get; set; }
 
         /// <summary>
-        /// Indicated the current period of the game. Possible values, if the game is in progress, include: 1, 2, 3, OT, SO. If the game is not in progress, then this will be NULL.
+        /// Indicated the current period of the game. Possible values include: 1, 2, 3, OT, SO, Final, F/OT, F/SO, NULL
         /// </summary>
-        [Description("Indicated the current period of the game. Possible values, if the game is in progress, include: 1, 2, 3, OT, SO. If the game is not in progress, then this will be NULL.")]
+        [Description("Indicated the current period of the game. Possible values include: 1, 2, 3, OT, SO, Final, F/OT, F/SO, NULL")]
         [DataMember(Name = "Period", Order = 18)]
         public string Period { get; set; }
 
@@ -217,6 +217,20 @@ namespace FantasyData.Api.Client.Model.NHL
         [Description("The description of the most recent play/event of the game. This is for display purposes and does not include corresponding data points.")]
         [DataMember(Name = "LastPlay", Order = 30)]
         public string LastPlay { get; set; }
+
+        /// <summary>
+        /// The details of the periods (including overtime if applicable) for this game.
+        /// </summary>
+        [Description("The details of the periods (including overtime if applicable) for this game.")]
+        [DataMember(Name = "Periods", Order = 20031)]
+        public Period[] Periods { get; set; }
+
+        /// <summary>
+        /// The date and time that the game ended in US Eastern Time
+        /// </summary>
+        [Description("The date and time that the game ended in US Eastern Time")]
+        [DataMember(Name = "GameEndDateTime", Order = 32)]
+        public DateTime? GameEndDateTime { get; set; }
 
     }
 }

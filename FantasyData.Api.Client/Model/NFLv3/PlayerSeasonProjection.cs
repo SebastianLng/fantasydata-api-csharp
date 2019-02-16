@@ -660,9 +660,9 @@ namespace FantasyData.Api.Client.Model.NFLv3
         public decimal? PuntInside20 { get; set; }
 
         /// <summary>
-        /// Net punt average (includes punt return yards as negative)
+        /// Deprecated
         /// </summary>
-        [Description("Net punt average (includes punt return yards as negative)")]
+        [Description("Deprecated")]
         [DataMember(Name = "PuntNetAverage", Order = 94)]
         public decimal? PuntNetAverage { get; set; }
 
@@ -737,9 +737,9 @@ namespace FantasyData.Api.Client.Model.NFLv3
         public decimal? FieldGoalReturnYards { get; set; }
 
         /// <summary>
-        /// Net punt yards
+        /// Deprecated
         /// </summary>
-        [Description("Net punt yards")]
+        [Description("Deprecated")]
         [DataMember(Name = "PuntNetYards", Order = 105)]
         public decimal? PuntNetYards { get; set; }
 
@@ -966,6 +966,27 @@ namespace FantasyData.Api.Client.Model.NFLv3
         [Description("The details of the scoring plays this player recorded")]
         [DataMember(Name = "ScoringDetails", Order = 20137)]
         public ScoringDetail[] ScoringDetails { get; set; }
+
+        /// <summary>
+        /// The average draft position of this player in rookie drafts
+        /// </summary>
+        [Description("The average draft position of this player in rookie drafts")]
+        [DataMember(Name = "AverageDraftPositionRookie", Order = 138)]
+        public decimal? AverageDraftPositionRookie { get; set; }
+
+        /// <summary>
+        /// The average draft position of this player in dynasty drafts
+        /// </summary>
+        [Description("The average draft position of this player in dynasty drafts")]
+        [DataMember(Name = "AverageDraftPositionDynasty", Order = 139)]
+        public decimal? AverageDraftPositionDynasty { get; set; }
+
+        /// <summary>
+        /// The average draft position of this player in 2 Quarterback drafts
+        /// </summary>
+        [Description("The average draft position of this player in 2 Quarterback drafts")]
+        [DataMember(Name = "AverageDraftPosition2QB", Order = 140)]
+        public decimal? AverageDraftPosition2QB { get; set; }
 
     }
 }

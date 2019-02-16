@@ -33,12 +33,12 @@ namespace FantasyData.Api.Client
         /// Get Box Score Asynchronous
         /// </summary>
         /// <param name="gameid">The GameID of an CFB game. GameIDs can be found in the Games API. Valid entries are <code>1148</code> or <code>1149</code></param>
-        public Task<BoxScore> GetBoxScoreAsync(int gameid)
+        public Task<List<BoxScore>> GetBoxScoreAsync(int gameid)
         {
             var parameters = new List<KeyValuePair<string, string>>();
             parameters.Add(new KeyValuePair<string, string>("gameid", gameid.ToString()));
-            return Task.Run<BoxScore>(() =>
-                base.Get<BoxScore>("/v3/cfb/stats/{format}/BoxScore/{gameid}", parameters)
+            return Task.Run<List<BoxScore>>(() =>
+                base.Get<List<BoxScore>>("/v3/cfb/stats/{format}/BoxScore/{gameid}", parameters)
             );
         }
 
@@ -46,7 +46,7 @@ namespace FantasyData.Api.Client
         /// Get Box Score
         /// </summary>
         /// <param name="gameid">The GameID of an CFB game. GameIDs can be found in the Games API. Valid entries are <code>1148</code> or <code>1149</code></param>
-        public BoxScore GetBoxScore(int gameid)
+        public List<BoxScore> GetBoxScore(int gameid)
         {
             return this.GetBoxScoreAsync(gameid).Result;
         }
@@ -76,8 +76,8 @@ namespace FantasyData.Api.Client
         /// <summary>
         /// Get Box Scores by Week Asynchronous
         /// </summary>
-        /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
-        /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
+        /// <param name="season">Year of the season. Examples: <code>2017</code>, <code>2018</code>, etc.</param>
+        /// <param name="week">The week of the game(s). Examples: <code>2</code>, <code>3</code>, etc.</param>
         public Task<List<BoxScore>> GetBoxScoresByWeekAsync(string season, int week)
         {
             var parameters = new List<KeyValuePair<string, string>>();
@@ -91,8 +91,8 @@ namespace FantasyData.Api.Client
         /// <summary>
         /// Get Box Scores by Week
         /// </summary>
-        /// <param name="season">Year of the season. Examples: <code>2015</code>, <code>2016</code>, etc.</param>
-        /// <param name="week">The week of the game(s). Examples: <code>1</code>, <code>2</code>, <code>3</code>, etc.</param>
+        /// <param name="season">Year of the season. Examples: <code>2017</code>, <code>2018</code>, etc.</param>
+        /// <param name="week">The week of the game(s). Examples: <code>2</code>, <code>3</code>, etc.</param>
         public List<BoxScore> GetBoxScoresByWeek(string season, int week)
         {
             return this.GetBoxScoresByWeekAsync(season, week).Result;
@@ -421,7 +421,7 @@ namespace FantasyData.Api.Client
         /// <summary>
         /// Get Schedules Asynchronous
         /// </summary>
-        /// <param name="season">Year of the season (with optional season type). Examples: <code>2017</code>, <code>2017POST</code>, <code>2018</code>.</param>
+        /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
         public Task<List<Game>> GetGamesAsync(string season)
         {
             var parameters = new List<KeyValuePair<string, string>>();
@@ -434,7 +434,7 @@ namespace FantasyData.Api.Client
         /// <summary>
         /// Get Schedules
         /// </summary>
-        /// <param name="season">Year of the season (with optional season type). Examples: <code>2017</code>, <code>2017POST</code>, <code>2018</code>.</param>
+        /// <param name="season">Year of the season (with optional season type). Examples: <code>2018</code>, <code>2018PRE</code>, <code>2018POST</code>, <code>2018STAR</code>, <code>2019</code>, etc.</param>
         public List<Game> GetGames(string season)
         {
             return this.GetGamesAsync(season).Result;

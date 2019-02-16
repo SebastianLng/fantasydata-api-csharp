@@ -30,9 +30,9 @@ namespace FantasyData.Api.Client.Model.CFB
         public bool Active { get; set; }
 
         /// <summary>
-        /// The school of the team (e.g. Oklahoma University, Texas Tech University, University of Southern California, Kentucky University, etc)
+        /// The school of the team (e.g. Oklahoma University, Texas Tech University, University of Southern California,  University of Kentucky, etc)
         /// </summary>
-        [Description("The school of the team (e.g. Oklahoma University, Texas Tech University, University of Southern California, Kentucky University, etc)")]
+        [Description("The school of the team (e.g. Oklahoma University, Texas Tech University, University of Southern California,  University of Kentucky, etc)")]
         [DataMember(Name = "School", Order = 4)]
         public string School { get; set; }
 
@@ -112,6 +112,27 @@ namespace FantasyData.Api.Client.Model.CFB
         [Description("The url of the team logo image.")]
         [DataMember(Name = "TeamLogoUrl", Order = 15)]
         public string TeamLogoUrl { get; set; }
+
+        /// <summary>
+        /// The ID of the team's conference
+        /// </summary>
+        [Description("The ID of the team's conference")]
+        [DataMember(Name = "ConferenceID", Order = 16)]
+        public int? ConferenceID { get; set; }
+
+        /// <summary>
+        /// The name of the team's conference
+        /// </summary>
+        [Description("The name of the team's conference")]
+        [DataMember(Name = "Conference", Order = 17)]
+        public string Conference { get; set; }
+
+        /// <summary>
+        /// The short display name of the team
+        /// </summary>
+        [Description("The short display name of the team")]
+        [DataMember(Name = "ShortDisplayName", Order = 18)]
+        public string ShortDisplayName { get; set; }
 
     }
 }

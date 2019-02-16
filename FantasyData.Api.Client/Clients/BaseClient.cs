@@ -25,6 +25,12 @@ namespace FantasyData.Api.Client
         /// <value>Default value is true</value>
         public bool Https { get; set; }
 
+        /// <summary>
+        /// The encoding type to be used in the WebClient for data pulled
+        /// </summary>
+        /// <value>Default is UTF8</value>
+        public Encoding Encoding { get; set; }
+
         private string Scheme { get { return Https ? "https" : "http"; } }
 
         public BaseClient(string apiKey)
@@ -32,6 +38,7 @@ namespace FantasyData.Api.Client
             Host = "api.fantasydata.net";
             ApiKey = apiKey.Replace("-", "").ToLower();
             Https = true;
+            Encoding = new UTF8Encoding();
         }
 
         public BaseClient(Guid apiKey) : this(apiKey.ToString()) { }
@@ -44,6 +51,7 @@ namespace FantasyData.Api.Client
             {
                 // Add api key
                 client.Headers.Add("Ocp-Apim-Subscription-Key", ApiKey);
+                client.Encoding = Encoding;
 
                 // Construct url
                 var uri = new UriBuilder(this.Scheme, this.Host);

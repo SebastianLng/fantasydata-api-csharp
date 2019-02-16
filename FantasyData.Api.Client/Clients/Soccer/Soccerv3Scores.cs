@@ -404,6 +404,94 @@ namespace FantasyData.Api.Client
             return this.GetVenuesAsync().Result;
         }
 
+        /// <summary>
+        /// Get Upcoming Schedule By Player Asynchronous
+        /// </summary>
+        /// <param name="playerid">Unique FantasyData Player ID. Example:<code>90026231</code>.</param>
+        public Task<List<Game>> GetUpcomingScheduleByPlayerAsync(int playerid)
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
+            parameters.Add(new KeyValuePair<string, string>("playerid", playerid.ToString()));
+            return Task.Run<List<Game>>(() =>
+                base.Get<List<Game>>("/v3/soccer/scores/{format}/UpcomingScheduleByPlayer/{playerid}", parameters)
+            );
+        }
+
+        /// <summary>
+        /// Get Upcoming Schedule By Player
+        /// </summary>
+        /// <param name="playerid">Unique FantasyData Player ID. Example:<code>90026231</code>.</param>
+        public List<Game> GetUpcomingScheduleByPlayer(int playerid)
+        {
+            return this.GetUpcomingScheduleByPlayerAsync(playerid).Result;
+        }
+
+        /// <summary>
+        /// Get Memberships (Recently Changed) Asynchronous
+        /// </summary>
+        /// <param name="days">The number of days since memberships were updated. For example, if you pass <code>3</code>, you'll receive all memberships that have been updated in the past 3 days. Valid entries are: <code>1</code>, <code>2</code> ... <code>30</code></param>
+        public Task<List<Membership>> GetRecentlyChangedMembershipsAsync(string days)
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
+            parameters.Add(new KeyValuePair<string, string>("days", days.ToString()));
+            return Task.Run<List<Membership>>(() =>
+                base.Get<List<Membership>>("/v3/soccer/scores/{format}/RecentlyChangedMemberships/{days}", parameters)
+            );
+        }
+
+        /// <summary>
+        /// Get Memberships (Recently Changed)
+        /// </summary>
+        /// <param name="days">The number of days since memberships were updated. For example, if you pass <code>3</code>, you'll receive all memberships that have been updated in the past 3 days. Valid entries are: <code>1</code>, <code>2</code> ... <code>30</code></param>
+        public List<Membership> GetRecentlyChangedMemberships(string days)
+        {
+            return this.GetRecentlyChangedMembershipsAsync(days).Result;
+        }
+
+        /// <summary>
+        /// Get Memberships by Competition (Active) Asynchronous
+        /// </summary>
+        /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+        public Task<List<Membership>> GetMembershipsByCompetitionAsync(string competition)
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
+            parameters.Add(new KeyValuePair<string, string>("competition", competition.ToString()));
+            return Task.Run<List<Membership>>(() =>
+                base.Get<List<Membership>>("/v3/soccer/scores/{format}/MembershipsByCompetition/{competition}", parameters)
+            );
+        }
+
+        /// <summary>
+        /// Get Memberships by Competition (Active)
+        /// </summary>
+        /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+        public List<Membership> GetMembershipsByCompetition(string competition)
+        {
+            return this.GetMembershipsByCompetitionAsync(competition).Result;
+        }
+
+        /// <summary>
+        /// Get Memberships by Competition (Historical) Asynchronous
+        /// </summary>
+        /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+        public Task<List<Membership>> GetHistoricalMembershipsByCompetitionAsync(string competition)
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
+            parameters.Add(new KeyValuePair<string, string>("competition", competition.ToString()));
+            return Task.Run<List<Membership>>(() =>
+                base.Get<List<Membership>>("/v3/soccer/scores/{format}/HistoricalMembershipsByCompetition/{competition}", parameters)
+            );
+        }
+
+        /// <summary>
+        /// Get Memberships by Competition (Historical)
+        /// </summary>
+        /// <param name="competition">An indication of a soccer competition/league. This value can be the CompetitionId or the Competition Key. Possible values include: <code>EPL</code>, <code>1</code>, <code>MLS</code>, <code>8</code>, etc.</param>
+        public List<Membership> GetHistoricalMembershipsByCompetition(string competition)
+        {
+            return this.GetHistoricalMembershipsByCompetitionAsync(competition).Result;
+        }
+
     }
 }
 

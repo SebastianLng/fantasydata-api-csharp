@@ -100,9 +100,9 @@ namespace FantasyData.Api.Client.Model.CBB
         public DateTime? Updated { get; set; }
 
         /// <summary>
-        /// The current half of the game (Possible Values: First, Second)
+        /// The current half of the game (Possible Values: 1, 2, Half, OT, F, F/OT, NULL)
         /// </summary>
-        [Description("The current half of the game (Possible Values: First, Second)")]
+        [Description("The current half of the game (Possible Values: 1, 2, Half, OT, F, F/OT, NULL)")]
         [DataMember(Name = "Period", Order = 14)]
         public string Period { get; set; }
 
@@ -233,9 +233,9 @@ namespace FantasyData.Api.Client.Model.CBB
         public int? HomeTeamPreviousGlobalGameID { get; set; }
 
         /// <summary>
-        /// The display order of this game (used for rendering NCAA Tournament bracket)
+        /// The display order of this game. This is used for rendering NCAA Tournament bracket.
         /// </summary>
-        [Description("The display order of this game (used for rendering NCAA Tournament bracket)")]
+        [Description("The display order of this game. This is used for rendering NCAA Tournament bracket.")]
         [DataMember(Name = "TournamentDisplayOrder", Order = 33)]
         public int? TournamentDisplayOrder { get; set; }
 
@@ -245,6 +245,34 @@ namespace FantasyData.Api.Client.Model.CBB
         [Description("The display order of the home team for this game. This is used for rendering the NCAA Tournament bracket, and it indicates whether the home team should be displayed at the top or bottom of the game card. Possible values: Top, Bottom")]
         [DataMember(Name = "TournamentDisplayOrderForHomeTeam", Order = 34)]
         public string TournamentDisplayOrderForHomeTeam { get; set; }
+
+        /// <summary>
+        /// The details of the periods (halves & overtime) for this game.
+        /// </summary>
+        [Description("The details of the periods (halves & overtime) for this game.")]
+        [DataMember(Name = "Periods", Order = 20035)]
+        public Period[] Periods { get; set; }
+
+        /// <summary>
+        /// Indicates whether the game is over and the final score has been verified and closed out.
+        /// </summary>
+        [Description("Indicates whether the game is over and the final score has been verified and closed out.")]
+        [DataMember(Name = "IsClosed", Order = 36)]
+        public bool IsClosed { get; set; }
+
+        /// <summary>
+        /// The date and time that the game ended in US Eastern Time
+        /// </summary>
+        [Description("The date and time that the game ended in US Eastern Time")]
+        [DataMember(Name = "GameEndDateTime", Order = 37)]
+        public DateTime? GameEndDateTime { get; set; }
+
+        /// <summary>
+        /// The stadium details of where this game was played
+        /// </summary>
+        [Description("The stadium details of where this game was played")]
+        [DataMember(Name = "Stadium", Order = 10038)]
+        public Stadium Stadium { get; set; }
 
     }
 }

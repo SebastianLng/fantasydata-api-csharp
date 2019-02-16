@@ -319,6 +319,27 @@ namespace FantasyData.Api.Client.Model.Golf
         [DataMember(Name = "RoundsWithFiveOrMoreBirdiesOrBetter", Order = 45)]
         public decimal? RoundsWithFiveOrMoreBirdiesOrBetter { get; set; }
 
+        /// <summary>
+        /// Indicates whether the player has withdrawn from the tournament
+        /// </summary>
+        [Description("Indicates whether the player has withdrawn from the tournament")]
+        [DataMember(Name = "IsWithdrawn", Order = 46)]
+        public bool IsWithdrawn { get; set; }
+
+        /// <summary>
+        /// The fantasy points this golfer scored using the Yahoo scoring system
+        /// </summary>
+        [Description("The fantasy points this golfer scored using the Yahoo scoring system")]
+        [DataMember(Name = "FantasyPointsYahoo", Order = 47)]
+        public decimal? FantasyPointsYahoo { get; set; }
+
+        /// <summary>
+        /// Total streaks of six birdies (or better) this golfer scored (maximum one per round)
+        /// </summary>
+        [Description("Total streaks of six birdies (or better) this golfer scored (maximum one per round)")]
+        [DataMember(Name = "StreaksOfSixBirdiesOrBetter", Order = 48)]
+        public decimal? StreaksOfSixBirdiesOrBetter { get; set; }
+
     }
 }
 

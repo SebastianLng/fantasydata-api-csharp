@@ -114,9 +114,9 @@ namespace FantasyData.Api.Client.Model.CFB
         public int? HomeTeamScore { get; set; }
 
         /// <summary>
-        /// The current quarter in the game (Possible Values: First, Second, Third, Fourth)
+        /// The current quarter in the game (Possible Values: 1, 2, 3, 4, Half, OT, F, F/OT, NULL)
         /// </summary>
-        [Description("The current quarter in the game (Possible Values: First, Second, Third, Fourth)")]
+        [Description("The current quarter in the game (Possible Values: 1, 2, 3, 4, Half, OT, F, F/OT, NULL)")]
         [DataMember(Name = "Period", Order = 16)]
         public string Period { get; set; }
 
@@ -210,6 +210,69 @@ namespace FantasyData.Api.Client.Model.CFB
         [Description("The details of the stadium where this game is played")]
         [DataMember(Name = "Stadium", Order = 10029)]
         public Stadium Stadium { get; set; }
+
+        /// <summary>
+        /// The yard line the ball is on
+        /// </summary>
+        [Description("The yard line the ball is on")]
+        [DataMember(Name = "YardLine", Order = 30)]
+        public int? YardLine { get; set; }
+
+        /// <summary>
+        /// Which team's side of the field the ball is on
+        /// </summary>
+        [Description("Which team's side of the field the ball is on")]
+        [DataMember(Name = "YardLineTerritory", Order = 31)]
+        public string YardLineTerritory { get; set; }
+
+        /// <summary>
+        /// The current down
+        /// </summary>
+        [Description("The current down")]
+        [DataMember(Name = "Down", Order = 32)]
+        public int? Down { get; set; }
+
+        /// <summary>
+        /// The current distance to a first down
+        /// </summary>
+        [Description("The current distance to a first down")]
+        [DataMember(Name = "Distance", Order = 33)]
+        public int? Distance { get; set; }
+
+        /// <summary>
+        /// Which team currently has possession of the ball
+        /// </summary>
+        [Description("Which team currently has possession of the ball")]
+        [DataMember(Name = "Possession", Order = 34)]
+        public string Possession { get; set; }
+
+        /// <summary>
+        /// The details of the periods (quarters & overtime) for this game
+        /// </summary>
+        [Description("The details of the periods (quarters & overtime) for this game")]
+        [DataMember(Name = "Periods", Order = 20035)]
+        public Period[] Periods { get; set; }
+
+        /// <summary>
+        /// Indicates whether the game is over and the final score has been verified and closed out
+        /// </summary>
+        [Description("Indicates whether the game is over and the final score has been verified and closed out")]
+        [DataMember(Name = "IsClosed", Order = 36)]
+        public bool IsClosed { get; set; }
+
+        /// <summary>
+        /// The date and time that the game ended in US Eastern Time
+        /// </summary>
+        [Description("The date and time that the game ended in US Eastern Time")]
+        [DataMember(Name = "GameEndDateTime", Order = 37)]
+        public DateTime? GameEndDateTime { get; set; }
+
+        /// <summary>
+        /// The title of the game (e.g. Rose Bowl, Citrus Bowl, etc)
+        /// </summary>
+        [Description("The title of the game (e.g. Rose Bowl, Citrus Bowl, etc)")]
+        [DataMember(Name = "Title", Order = 38)]
+        public string Title { get; set; }
 
     }
 }

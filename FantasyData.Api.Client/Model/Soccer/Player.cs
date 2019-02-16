@@ -72,16 +72,16 @@ namespace FantasyData.Api.Client.Model.Soccer
         public string Foot { get; set; }
 
         /// <summary>
-        /// The player's height in inches.
+        /// The player's height in cm.
         /// </summary>
-        [Description("The player's height in inches.")]
+        [Description("The player's height in cm.")]
         [DataMember(Name = "Height", Order = 10)]
         public int? Height { get; set; }
 
         /// <summary>
-        /// The player's weight in pounds (lbs).
+        /// The player's weight in kg.
         /// </summary>
-        [Description("The player's weight in pounds (lbs).")]
+        [Description("The player's weight in kg.")]
         [DataMember(Name = "Weight", Order = 11)]
         public int? Weight { get; set; }
 
@@ -121,9 +121,9 @@ namespace FantasyData.Api.Client.Model.Soccer
         public string Nationality { get; set; }
 
         /// <summary>
-        /// Indicates the player's injury status. Possible values include: Probable, Questionable, Doubtful, Out
+        /// Indicates the player's injury status. Possible values include: Questionable, Out
         /// </summary>
-        [Description("Indicates the player's injury status. Possible values include: Probable, Questionable, Doubtful, Out")]
+        [Description("Indicates the player's injury status. Possible values include: Questionable, Out")]
         [DataMember(Name = "InjuryStatus", Order = 17)]
         public string InjuryStatus { get; set; }
 
@@ -135,9 +135,9 @@ namespace FantasyData.Api.Client.Model.Soccer
         public string InjuryBodyPart { get; set; }
 
         /// <summary>
-        /// Brief description of the player's injury and expected availability.
+        /// Not yet supported, will be null.
         /// </summary>
-        [Description("Brief description of the player's injury and expected availability.")]
+        [Description("Not yet supported, will be null.")]
         [DataMember(Name = "InjuryNotes", Order = 19)]
         public string InjuryNotes { get; set; }
 
@@ -149,9 +149,9 @@ namespace FantasyData.Api.Client.Model.Soccer
         public DateTime? InjuryStartDate { get; set; }
 
         /// <summary>
-        /// The date and time the player's status was updated. 
+        /// The date and time the player's status was updated. (EST/EDT)
         /// </summary>
-        [Description("The date and time the player's status was updated. ")]
+        [Description("The date and time the player's status was updated. (EST/EDT)")]
         [DataMember(Name = "Updated", Order = 21)]
         public DateTime? Updated { get; set; }
 
@@ -175,6 +175,27 @@ namespace FantasyData.Api.Client.Model.Soccer
         [Description("The position of the player according to DraftKings.")]
         [DataMember(Name = "DraftKingsPosition", Order = 24)]
         public string DraftKingsPosition { get; set; }
+
+        /// <summary>
+        /// The player's cross reference PlayerID to USA Today headshot data feeds.
+        /// </summary>
+        [Description("The player's cross reference PlayerID to USA Today headshot data feeds.")]
+        [DataMember(Name = "UsaTodayPlayerID", Order = 25)]
+        public int? UsaTodayPlayerID { get; set; }
+
+        /// <summary>
+        /// The player's headshot URL as provided by USA Today. License from USA Today is required.
+        /// </summary>
+        [Description("The player's headshot URL as provided by USA Today. License from USA Today is required.")]
+        [DataMember(Name = "UsaTodayHeadshotUrl", Order = 26)]
+        public string UsaTodayHeadshotUrl { get; set; }
+
+        /// <summary>
+        /// The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.
+        /// </summary>
+        [Description("The player's transparent background headshot URL as provided by USA Today. License from USA Today is required.")]
+        [DataMember(Name = "UsaTodayHeadshotNoBackgroundUrl", Order = 27)]
+        public string UsaTodayHeadshotNoBackgroundUrl { get; set; }
 
     }
 }
