@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Json;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace FantasyData.Api.Client
