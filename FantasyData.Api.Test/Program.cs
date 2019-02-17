@@ -9,13 +9,13 @@ namespace FantasyData.Api.Test
         static void Main(string[] args)
         {
             // Connect to client and get data
-            var client = new MLBv3ProjectionsClient("api_key_goes_here");
-            var projections = client.GetPlayerGameProjectionStatsByDate("2018-09-07").OrderByDescending(p => p.DraftKingsSalary).Take(20).ToList();
+            var client = new NFLv3StatsClient("api_key_goes_here");
+            var players = client.GetPlayers();
 
             // Write data to console
-            foreach(var projection in projections)
+            foreach(var player in players)
             {
-                Console.WriteLine($"{projection.PlayerID} - {projection.Name} ({projection.DraftKingsPosition}) DraftKings Salary: {projection.DraftKingsSalary}");
+                Console.WriteLine($"{player.PlayerID} - {player.Name} - {player.Team}");
             }
 
             Console.WriteLine();
